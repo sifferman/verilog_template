@@ -1,0 +1,24 @@
+name: Test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Download Tools
+        run: |
+          wget -O - https://raw.githubusercontent.com/sifferman/hdl-tool-installer/main/install | bash -s -- . --oss-cad-suite --zachjs-sv2v
+          echo "$GITHUB_WORKSPACE/oss-cad-suite/bin" >> $GITHUB_PATH
+          echo "$GITHUB_WORKSPACE/zachjs-sv2v" >> $GITHUB_PATH
+
+      - run: make lint
+      - run: make sim
+      - run: make gls
+      - run: make icestorm_icebreaker_gls
+
+      - run: make clean

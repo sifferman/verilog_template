@@ -1,0 +1,8 @@
+
+*       text eol=lf
+
+# Language Corrections
+*.vh    linguist-language=Verilog
+# Verilator
+*.vlt   linguist-language=SystemVerilog
+*.f     linguist-language=SystemVerilog
