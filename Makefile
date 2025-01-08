@@ -61,6 +61,16 @@ icestorm_icebreaker_program: synth/icestorm_icebreaker/build/icebreaker.bit
 icestorm_icebreaker_flash: synth/icestorm_icebreaker/build/icebreaker.bit
 	sudo $(shell which openFPGALoader) -f -b ice40_generic $<
 
+synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit: synth/build/rtl.sv2v.v synth/vivado_basys3/basys3.sv synth/vivado_basys3/Basys3_Master.xdc synth/vivado_basys3/constraints.xdc synth/vivado_basys3/vivado.tcl
+	rm -rf synth/vivado_basys3/build/basys3
+	mkdir -p synth/vivado_basys3/build
+	cd synth/vivado_basys3/build && \
+	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
+	  -source ../vivado.tcl
+
+vivado_basys3_program: synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit
+	sudo $(shell which openFPGALoader) -b vivado_basys3 $<
+
 clean:
 	rm -rf \
 	 *.memh *.memb \
@@ -68,4 +78,5 @@ clean:
 	 dump.vcd dump.fst \
 	 synth/build \
 	 synth/yosys_generic/build \
-	 synth/icestorm_icebreaker/build
+	 synth/icestorm_icebreaker/build \
+	 synth/vivado_basys3/build
