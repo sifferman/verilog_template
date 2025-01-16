@@ -23,7 +23,7 @@ SB_PLL40_PAD #(
     .RESETB(1'b1),
     .BYPASS(1'b0),
     .PACKAGEPIN(clk_12),
-    .PLLOUTCORE(clk_50)
+    .PLLOUTGLOBAL(clk_50)
 );
 
 blinky #(
