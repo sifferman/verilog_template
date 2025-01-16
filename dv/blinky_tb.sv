@@ -6,7 +6,7 @@ module blinky_tb
 
 blinky_runner blinky_runner ();
 
-always begin
+initial begin
     $dumpfile( "dump.fst" );
     $dumpvars;
     $display( "Begin simulation." );
