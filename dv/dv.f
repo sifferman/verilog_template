@@ -18,3 +18,6 @@ dv/blinky_tb.sv
 -Werror-IMPLICIT
 -Werror-USERERROR
 -Werror-LATCH
+
+// Specifying c++14 may be required for some compilers
+-CFLAGS -std=c++14
