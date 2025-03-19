@@ -65,7 +65,7 @@ The purpose of the "yosys_generic" target is to run "gate-level" or "post-synthe
 The purpose of the "icestorm_icebreaker" target is for simulation and FPGA implementation.
 
 * [`"synth/icestorm_icebreaker/icebreaker.v"`](./synth/icestorm_icebreaker/icebreaker.v): This is the top-level module that exposes the Icebreaker's ports. Note the PLL that was created using `icepll`.
-* [`"synth/icestorm_icebreaker/netpnr.pcf"`](./synth/icestorm_icebreaker/netpnr.pcf): This Pin Constraints File is given to `nextpnr` to assign Verilog ports to the FPGA's pins.
+* [`"synth/icestorm_icebreaker/nextpnr.pcf"`](./synth/icestorm_icebreaker/nextpnr.pcf): This Pin Constraints File is given to `nextpnr` to assign Verilog ports to the FPGA's pins.
 * [`"synth/icestorm_icebreaker/nextpnr.py"`](./synth/icestorm_icebreaker/nextpnr.py): This file is given to the `nextpnr` Python API to create timing constraints.
 * [`"synth/icestorm_icebreaker/yosys.tcl"`](./synth/icestorm_icebreaker/yosys.tcl): This TCL file is passed to Yosys to perform synthesis mapped to iCE40 standard cells ([`"ice40/cells_sim.v"`](https://github.com/YosysHQ/yosys/blob/main/techlibs/ice40/cells_sim.v)).
 * [`"synth/icestorm_icebreaker/gls.f"`](./synth/icestorm_icebreaker/gls.f): This file lists all the required RTL files to be simulated in `make icestorm_icebreaker_gls`.

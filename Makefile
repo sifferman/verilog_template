@@ -43,13 +43,13 @@ synth/icestorm_icebreaker/build/synth.v synth/icestorm_icebreaker/build/synth.js
 	mkdir -p $(dir $@)
 	yosys -p 'tcl synth/icestorm_icebreaker/yosys.tcl' -l synth/icestorm_icebreaker/build/yosys.log
 
-synth/icestorm_icebreaker/build/icebreaker.asc: synth/icestorm_icebreaker/build/synth.json synth/icestorm_icebreaker/nextpnr.py synth/icestorm_icebreaker/netpnr.pcf
+synth/icestorm_icebreaker/build/icebreaker.asc: synth/icestorm_icebreaker/build/synth.json synth/icestorm_icebreaker/nextpnr.py synth/icestorm_icebreaker/nextpnr.pcf
 	nextpnr-ice40 \
 	 --json synth/icestorm_icebreaker/build/synth.json \
 	 --up5k \
 	 --package sg48 \
 	 --pre-pack synth/icestorm_icebreaker/nextpnr.py \
-	 --pcf synth/icestorm_icebreaker/netpnr.pcf \
+	 --pcf synth/icestorm_icebreaker/nextpnr.pcf \
 	 --asc $@
 
 %.bit: %.asc
