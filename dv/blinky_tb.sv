@@ -4,6 +4,7 @@ module blinky_tb
     import dv_pkg::*;
     ;
 
+import "DPI-C" function void example_dpi();
 blinky_runner blinky_runner ();
 
 initial begin

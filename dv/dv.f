@@ -3,6 +3,8 @@ dv/dv_pkg.sv
 
 dv/blinky_tb.sv
 
+dv/dpi/example_dpi.c
+
 --timing
 -j 0
 -Wall
