@@ -21,5 +21,5 @@ dv/dpi/example_dpi.c
 -Werror-USERERROR
 -Werror-LATCH
 
-// Specifying c++14 may be required for some compilers
--CFLAGS -std=c++14
+// Required for some compilers
+-CFLAGS -std=c++20
