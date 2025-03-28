@@ -20,7 +20,6 @@
 
 # https://github.com/Digilent/digilent-xdc/blob/master/Basys-3-Master.xdc
 
-
 ## This file is a general .xdc for the Basys3 rev B board
 ## To use it in a project:
 ## - uncomment the lines corresponding to used pins

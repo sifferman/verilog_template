@@ -27,7 +27,7 @@ SB_PLL40_PAD #(
 );
 
 blinky #(
-    .ResetValue(5000000)
+    .ResetValue(5_000_000)
 ) blinky (
     .clk_i(clk_50),
     .rst_ni(BTN_N),
