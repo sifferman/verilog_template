@@ -33,7 +33,7 @@ gls: synth/yosys_generic/build/synth.v
 
 synth/yosys_generic/build/synth.v: synth/build/rtl.sv2v.v synth/yosys_generic/yosys.tcl
 	mkdir -p $(dir $@)
-	yosys -p 'tcl synth/yosys_generic/yosys.tcl synth/build/rtl.sv2v.v' -l synth/yosys_generic/build/yosys.log
+	yosys -p 'tcl synth/yosys_generic/yosys.tcl' -l synth/yosys_generic/build/yosys.log
 
 icestorm_icebreaker_gls: synth/icestorm_icebreaker/build/synth.v
 	verilator lint/verilator.vlt --Mdir ${TOP}_$@_dir -f synth/icestorm_icebreaker/gls.f -f dv/dv.f --binary -Wno-fatal --top ${TOP}
