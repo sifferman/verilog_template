@@ -14,7 +14,7 @@ mmcm_100_to_50 pll (
 );
 
 blinky #(
-    .ResetValue(5_000_000)
+    .CyclesPerToggle(5_000_000)
 ) blinky (
     .clk_i(clk_50),
     .rst_ni(rst_n),

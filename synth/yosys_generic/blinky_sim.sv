@@ -6,7 +6,7 @@ module blinky_sim (
 );
 
 blinky #(
-    .ResetValue(100)
+    .CyclesPerToggle(100)
 ) blinky (.*);
 
 endmodule

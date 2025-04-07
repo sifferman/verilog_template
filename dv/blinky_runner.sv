@@ -5,7 +5,8 @@ logic clk_i;
 logic rst_ni;
 logic led_o;
 
-localparam realtime ClockPeriod = 5ms;
+localparam realtime ClockFrequency = 200;
+localparam realtime ClockPeriod = (1s / ClockFrequency);
 
 initial begin
     clk_i = 0;
@@ -16,7 +17,7 @@ initial begin
 end
 
 blinky #(
-    .ResetValue(100)
+    .CyclesPerToggle(100)
 ) blinky (.*);
 
 always @(posedge led_o) $info("Led on");
@@ -24,6 +25,7 @@ always @(negedge led_o) $info("Led off");
 
 task automatic reset;
     rst_ni <= 0;
+    @(posedge clk_i);
     @(posedge clk_i);
     rst_ni <= 1;
 endtask

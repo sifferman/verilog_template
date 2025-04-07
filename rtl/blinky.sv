@@ -1,12 +1,14 @@
 
 module blinky import config_pkg::*; #(
-    parameter int ResetValue = 1_000_000,
-    localparam int CountWidth = $clog2(ResetValue)
+    parameter int CyclesPerToggle = 1_000_000,
+    localparam int CountWidth = $clog2(CyclesPerToggle)
 ) (
     input  logic clk_i,
     input  logic rst_ni,
     output logic led_o
 );
+
+if (CyclesPerToggle < 1) $error("CyclesPerToggle cannot be less than 1.");
 
 logic counter_reset;
 logic [CountWidth-1:0] count;
@@ -20,14 +22,14 @@ assign led_o = led_q;
 always_comb begin
     counter_reset = !rst_ni;
     led_d = led_q;
-    if (count == CountWidth'(ResetValue)) begin
+    if (count == CountWidth'(CyclesPerToggle-1)) begin
         counter_reset = 1;
         led_d = !led_q;
     end
 end
 
 bsg_counter_up_down #(
-    .max_val_p(ResetValue),
+    .max_val_p(CyclesPerToggle-1),
     .init_val_p(0),
     .max_step_p(1)
 ) bsg_counter_up_down (
