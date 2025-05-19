@@ -51,7 +51,8 @@ synth/icestorm_icebreaker/build/icebreaker.asc: synth/icestorm_icebreaker/build/
 	 --package sg48 \
 	 --sdc synth/icestorm_icebreaker/nextpnr.sdc \
 	 --pcf synth/icestorm_icebreaker/nextpnr.pcf \
-	 --asc $@
+	 --asc $@ \
+	 --report synth/icestorm_icebreaker/build/nextpnr.json
 
 %.bit: %.asc
 	icepack $< $@
