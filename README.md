@@ -66,7 +66,7 @@ The purpose of the "icestorm_icebreaker" target is for simulation and FPGA imple
 
 * [`"synth/icestorm_icebreaker/icebreaker.v"`](./synth/icestorm_icebreaker/icebreaker.v): This is the top-level module that exposes the Icebreaker's ports. Note the PLL that was created using `icepll`.
 * [`"synth/icestorm_icebreaker/nextpnr.pcf"`](./synth/icestorm_icebreaker/nextpnr.pcf): This Pin Constraints File is given to `nextpnr` to assign Verilog ports to the FPGA's pins.
-* [`"synth/icestorm_icebreaker/nextpnr.py"`](./synth/icestorm_icebreaker/nextpnr.py): This file is given to the `nextpnr` Python API to create timing constraints.
+* [`"synth/icestorm_icebreaker/nextpnr.sdc"`](./synth/icestorm_icebreaker/nextpnr.sdc): This Synopsys Design Constraints file creates timing constraints in `nextpnr`. ([Supported SDC Commmands](https://github.com/YosysHQ/nextpnr/blob/master/common/kernel/sdc.cc))
 * [`"synth/icestorm_icebreaker/yosys.tcl"`](./synth/icestorm_icebreaker/yosys.tcl): This TCL file is passed to Yosys to perform synthesis mapped to iCE40 standard cells ([`"ice40/cells_sim.v"`](https://github.com/YosysHQ/yosys/blob/main/techlibs/ice40/cells_sim.v)).
 * [`"synth/icestorm_icebreaker/gls.f"`](./synth/icestorm_icebreaker/gls.f): This file lists all the required RTL files to be simulated in `make icestorm_icebreaker_gls`.
 * [`"synth/icestorm_icebreaker/blinky_runner.sv"`](./synth/icestorm_icebreaker/blinky_runner.sv): This file is similar to `"dv/blinky_runner.sv"`, in that it abstracts away the specifics of interfacing with the "icestorm_icebreaker" target. Also note that it overrides the output of the PLL, so that the simulation's timing is accurate.
