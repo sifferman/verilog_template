@@ -45,6 +45,7 @@ synth/icestorm_icebreaker/build/synth.v synth/icestorm_icebreaker/build/synth.js
 
 synth/icestorm_icebreaker/build/icebreaker.asc: synth/icestorm_icebreaker/build/synth.json synth/icestorm_icebreaker/nextpnr.py synth/icestorm_icebreaker/nextpnr.pcf
 	nextpnr-ice40 \
+	 -l synth/icestorm_icebreaker/build/nextpnr.log \
 	 --json synth/icestorm_icebreaker/build/synth.json \
 	 --up5k \
 	 --package sg48 \
