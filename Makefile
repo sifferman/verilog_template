@@ -71,7 +71,7 @@ synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit: synth/build/rtl.
 	  -source ../vivado.tcl
 
 vivado_basys3_program: synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit
-	sudo $(shell which openFPGALoader) -b vivado_basys3 $<
+	sudo $(shell which openFPGALoader) -b basys3 $<
 
 clean:
 	rm -rf \
