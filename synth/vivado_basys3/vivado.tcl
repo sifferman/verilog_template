@@ -20,9 +20,10 @@ set_property top basys3 [current_fileset]
 # Generate Clock
 create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name mmcm_100_to_50
 set_property -dict [list \
+  CONFIG.PRIMARY_PORT {clk_100} \
+  CONFIG.PRIM_IN_FREQ {100} \
   CONFIG.CLK_OUT1_PORT {clk_50} \
   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} \
-  CONFIG.PRIMARY_PORT {clk_100} \
   CONFIG.USE_LOCKED {false} \
   CONFIG.USE_RESET {false} \
 ] [get_ips mmcm_100_to_50]
